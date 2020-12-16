@@ -127,14 +127,24 @@ function moveBall() {
                 ) {
                     ball.dy *= -1;
                     brick.visible = false;
-
+                    score++;
                 }
 
             }
         })
 
     })
+    if (ball.y + ball.size > canvas.height) {
+        score = 0;
+        bricks.forEach(column => {
+            column.forEach(brick => {
+                brick.visible = true;
+            })
+        })
+    }
+
 }
+
 
 // Draw everything
 function draw() {
